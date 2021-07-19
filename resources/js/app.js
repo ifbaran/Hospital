@@ -9,6 +9,7 @@ import VueMask from 'v-mask';
 
 window.Vue = require('vue').default;
 Vue.use(VueMask);
+Vue.use(require('vue-resource'));
 
 /**
  * The following block of code may be used to automatically register your
@@ -23,7 +24,8 @@ Vue.use(VueMask);
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('appointment-form-component', require('./components/AppointmentFormComponent').default);
-
+Vue.component('admin-appointment-component', require('./components/AdminAppointmentComponent').default);
+Vue.component('pagination', require('laravel-vue-pagination'));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

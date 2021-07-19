@@ -22,4 +22,8 @@ Route::group(['namespace'=>'api'], function(){
     Route::get('/working-hours/{date?}','WorkingHoursController@getWorkingHours');
     Route::post('/appointment', 'AppointmentController@storeAppointment');
 
+    Route::group(['namespace'=>'admin', 'prefix'=> 'admin'],function(){
+        Route::get('appointment-list','AdminAPIController@getAppointmentList');
+    });
+
 });

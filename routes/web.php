@@ -18,3 +18,9 @@ Route::get('/', 'front\IndexController@index')->name('front.index');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::prefix("admin")->group(function ()
+{
+    Route::get('/', 'admin\AdminController@index')->name('index');
+});
