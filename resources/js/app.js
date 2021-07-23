@@ -23,8 +23,20 @@ Vue.use(require('vue-resource'));
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+
+//Admin Components
+Vue.component('admin-component',require('./components/Admin/AdminComponent').default);
+Vue.component('admin-list-appointment-component', require('./components/Admin/AdminListAppointmentComponent').default);
+Vue.component('admin-waiting-appointment-component', require('./components/Admin/AdminWaitingAppointmentComponent').default);
+Vue.component('admin-cancel-appointment-component', require('./components/Admin/AdminCancelAppointmentComponent').default);
+Vue.component('admin-appointment-component', require('./components/Admin/AdminAppointmentComponent').default);
+Vue.component('admin-today-appointment-component', require('./components/Admin/AdminTodayAppointmentComponent').default);
+Vue.component('admin-last-appointment-component', require('./components/Admin/AdminLastAppointmentComponent').default);
+
+//Form Component
 Vue.component('appointment-form-component', require('./components/AppointmentFormComponent').default);
-Vue.component('admin-appointment-component', require('./components/AdminAppointmentComponent').default);
+
+//Vue Pagination
 Vue.component('pagination', require('laravel-vue-pagination'));
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -1834,10 +1834,10 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AdminAppointmentComponent.vue?vue&type=script&lang=js&":
-/*!********************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AdminAppointmentComponent.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminAppointmentComponent.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminAppointmentComponent.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1845,21 +1845,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -1893,6 +1878,428 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       axios.get("http://hospital.test/api/admin/appointment-list?page=".concat(page)).then(function (response) {
+        _this.items = response.data;
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminCancelAppointmentComponent.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminCancelAppointmentComponent.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "AdminAppointmentComponent",
+  data: function data() {
+    return {
+      items: {
+        data: []
+      }
+    };
+  },
+  created: function created() {
+    this.getData();
+  },
+  mounted: function mounted() {},
+  methods: {
+    getData: function getData(page) {
+      var _this = this;
+
+      if (typeof page === 'undefined') {
+        page = 1;
+      }
+
+      axios.get("http://hospital.test/api/admin/appointment-cancel-list?page=".concat(page)).then(function (response) {
+        _this.items = response.data;
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminComponent.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminComponent.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "AdminComponent",
+  data: function data() {
+    return {
+      waiting: {
+        data: []
+      },
+      list: {
+        data: []
+      },
+      last: {
+        data: []
+      },
+      cancel: {
+        data: []
+      },
+      today: {
+        data: []
+      }
+    };
+  },
+  created: function created() {
+    this.getData();
+  },
+  methods: {
+    updateOkey: function updateOkey(id) {
+      var _this = this;
+
+      axios.post("http://hospital.test/api/admin/process", {
+        type: 1,
+        id: id
+      }).then(function (response) {
+        _this.getData();
+      });
+    },
+    updateCancel: function updateCancel(id) {
+      var _this2 = this;
+
+      axios.post("http://hospital.test/api/admin/process", {
+        type: 2,
+        id: id
+      }).then(function (response) {
+        _this2.getData();
+      });
+    },
+    getData: function getData(page) {
+      var _this3 = this;
+
+      if (typeof page === 'undefined') {
+        page = 1;
+      }
+
+      axios.get("http://hospital.test/api/admin/all?page=".concat(page)).then(function (response) {
+        _this3.waiting = response.data.waiting;
+        _this3.cancel = response.data.cancel;
+        _this3.today = response.data.today;
+        _this3.list = response.data.list;
+        _this3.last = response.data.last;
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminLastAppointmentComponent.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminLastAppointmentComponent.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "AdminLastAppointmentComponent",
+  data: function data() {
+    return {
+      items: {
+        data: []
+      }
+    };
+  },
+  created: function created() {
+    this.getData();
+  },
+  mounted: function mounted() {},
+  methods: {
+    getData: function getData(page) {
+      var _this = this;
+
+      if (typeof page === 'undefined') {
+        page = 1;
+      }
+
+      axios.get("http://hospital.test/api/admin/appointment-last-list?page=".concat(page)).then(function (response) {
+        _this.items = response.data;
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminListAppointmentComponent.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminListAppointmentComponent.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['data'],
+  name: "AdminListAppointmentComponent",
+  methods: {
+    appointmentConfirmation: function appointmentConfirmation(id) {
+      this.$emit('updateOkey', id);
+    },
+    appointmentCancel: function appointmentCancel(id) {
+      this.$emit('updateCancel', id);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminTodayAppointmentComponent.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminTodayAppointmentComponent.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "AdminAppointmentComponent",
+  data: function data() {
+    return {
+      items: {
+        data: []
+      }
+    };
+  },
+  created: function created() {
+    this.getData();
+  },
+  mounted: function mounted() {},
+  methods: {
+    getData: function getData(page) {
+      var _this = this;
+
+      if (typeof page === 'undefined') {
+        page = 1;
+      }
+
+      axios.get("http://hospital.test/api/admin/appointment-today-list?page=".concat(page)).then(function (response) {
+        _this.items = response.data;
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminWaitingAppointmentComponent.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminWaitingAppointmentComponent.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "AdminAppointmentComponent",
+  data: function data() {
+    return {
+      items: {
+        data: []
+      }
+    };
+  },
+  created: function created() {
+    this.getData();
+  },
+  mounted: function mounted() {},
+  methods: {
+    getData: function getData(page) {
+      var _this = this;
+
+      if (typeof page === 'undefined') {
+        page = 1;
+      }
+
+      axios.get("http://hospital.test/api/admin/appointment-waiting-list?page=".concat(page)).then(function (response) {
         _this.items = response.data;
       });
     }
@@ -2033,7 +2440,8 @@ __webpack_require__.r(__webpack_exports__);
       appointmentPhone: null,
       appointmentDate: new Date().toISOString().slice(0, 10),
       appointmentNote: null,
-      workingHours: []
+      workingHours: [],
+      minDate: new Date().toISOString().slice(0, 10)
     };
   },
   name: "AppointmentFormComponent",
@@ -2169,9 +2577,18 @@ Vue.use(__webpack_require__(/*! vue-resource */ "./node_modules/vue-resource/dis
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue").default);
-Vue.component('appointment-form-component', __webpack_require__(/*! ./components/AppointmentFormComponent */ "./resources/js/components/AppointmentFormComponent.vue").default);
-Vue.component('admin-appointment-component', __webpack_require__(/*! ./components/AdminAppointmentComponent */ "./resources/js/components/AdminAppointmentComponent.vue").default);
+Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue").default); //Admin Components
+
+Vue.component('admin-component', __webpack_require__(/*! ./components/Admin/AdminComponent */ "./resources/js/components/Admin/AdminComponent.vue").default);
+Vue.component('admin-list-appointment-component', __webpack_require__(/*! ./components/Admin/AdminListAppointmentComponent */ "./resources/js/components/Admin/AdminListAppointmentComponent.vue").default);
+Vue.component('admin-waiting-appointment-component', __webpack_require__(/*! ./components/Admin/AdminWaitingAppointmentComponent */ "./resources/js/components/Admin/AdminWaitingAppointmentComponent.vue").default);
+Vue.component('admin-cancel-appointment-component', __webpack_require__(/*! ./components/Admin/AdminCancelAppointmentComponent */ "./resources/js/components/Admin/AdminCancelAppointmentComponent.vue").default);
+Vue.component('admin-appointment-component', __webpack_require__(/*! ./components/Admin/AdminAppointmentComponent */ "./resources/js/components/Admin/AdminAppointmentComponent.vue").default);
+Vue.component('admin-today-appointment-component', __webpack_require__(/*! ./components/Admin/AdminTodayAppointmentComponent */ "./resources/js/components/Admin/AdminTodayAppointmentComponent.vue").default);
+Vue.component('admin-last-appointment-component', __webpack_require__(/*! ./components/Admin/AdminLastAppointmentComponent */ "./resources/js/components/Admin/AdminLastAppointmentComponent.vue").default); //Form Component
+
+Vue.component('appointment-form-component', __webpack_require__(/*! ./components/AppointmentFormComponent */ "./resources/js/components/AppointmentFormComponent.vue").default); //Vue Pagination
+
 Vue.component('pagination', __webpack_require__(/*! laravel-vue-pagination */ "./node_modules/laravel-vue-pagination/dist/laravel-vue-pagination.common.js"));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -38728,10 +39145,10 @@ var plugin = (function (Vue) {
 
 /***/ }),
 
-/***/ "./resources/js/components/AdminAppointmentComponent.vue":
-/*!***************************************************************!*\
-  !*** ./resources/js/components/AdminAppointmentComponent.vue ***!
-  \***************************************************************/
+/***/ "./resources/js/components/Admin/AdminAppointmentComponent.vue":
+/*!*********************************************************************!*\
+  !*** ./resources/js/components/Admin/AdminAppointmentComponent.vue ***!
+  \*********************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -38739,9 +39156,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _AdminAppointmentComponent_vue_vue_type_template_id_506b1fb2_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AdminAppointmentComponent.vue?vue&type=template&id=506b1fb2&scoped=true& */ "./resources/js/components/AdminAppointmentComponent.vue?vue&type=template&id=506b1fb2&scoped=true&");
-/* harmony import */ var _AdminAppointmentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AdminAppointmentComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/AdminAppointmentComponent.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _AdminAppointmentComponent_vue_vue_type_template_id_a6f8f9dc_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AdminAppointmentComponent.vue?vue&type=template&id=a6f8f9dc&scoped=true& */ "./resources/js/components/Admin/AdminAppointmentComponent.vue?vue&type=template&id=a6f8f9dc&scoped=true&");
+/* harmony import */ var _AdminAppointmentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AdminAppointmentComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/Admin/AdminAppointmentComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -38751,18 +39168,252 @@ __webpack_require__.r(__webpack_exports__);
 ;
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
   _AdminAppointmentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
-  _AdminAppointmentComponent_vue_vue_type_template_id_506b1fb2_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
-  _AdminAppointmentComponent_vue_vue_type_template_id_506b1fb2_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _AdminAppointmentComponent_vue_vue_type_template_id_a6f8f9dc_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _AdminAppointmentComponent_vue_vue_type_template_id_a6f8f9dc_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
-  "506b1fb2",
+  "a6f8f9dc",
   null
   
 )
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/AdminAppointmentComponent.vue"
+component.options.__file = "resources/js/components/Admin/AdminAppointmentComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/AdminCancelAppointmentComponent.vue":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/Admin/AdminCancelAppointmentComponent.vue ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _AdminCancelAppointmentComponent_vue_vue_type_template_id_6ee0daa8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AdminCancelAppointmentComponent.vue?vue&type=template&id=6ee0daa8&scoped=true& */ "./resources/js/components/Admin/AdminCancelAppointmentComponent.vue?vue&type=template&id=6ee0daa8&scoped=true&");
+/* harmony import */ var _AdminCancelAppointmentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AdminCancelAppointmentComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/Admin/AdminCancelAppointmentComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _AdminCancelAppointmentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _AdminCancelAppointmentComponent_vue_vue_type_template_id_6ee0daa8_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _AdminCancelAppointmentComponent_vue_vue_type_template_id_6ee0daa8_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "6ee0daa8",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Admin/AdminCancelAppointmentComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/AdminComponent.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/Admin/AdminComponent.vue ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _AdminComponent_vue_vue_type_template_id_bf7c018e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AdminComponent.vue?vue&type=template&id=bf7c018e&scoped=true& */ "./resources/js/components/Admin/AdminComponent.vue?vue&type=template&id=bf7c018e&scoped=true&");
+/* harmony import */ var _AdminComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AdminComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/Admin/AdminComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _AdminComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _AdminComponent_vue_vue_type_template_id_bf7c018e_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _AdminComponent_vue_vue_type_template_id_bf7c018e_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "bf7c018e",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Admin/AdminComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/AdminLastAppointmentComponent.vue":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/Admin/AdminLastAppointmentComponent.vue ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _AdminLastAppointmentComponent_vue_vue_type_template_id_82e36c70_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AdminLastAppointmentComponent.vue?vue&type=template&id=82e36c70&scoped=true& */ "./resources/js/components/Admin/AdminLastAppointmentComponent.vue?vue&type=template&id=82e36c70&scoped=true&");
+/* harmony import */ var _AdminLastAppointmentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AdminLastAppointmentComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/Admin/AdminLastAppointmentComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _AdminLastAppointmentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _AdminLastAppointmentComponent_vue_vue_type_template_id_82e36c70_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _AdminLastAppointmentComponent_vue_vue_type_template_id_82e36c70_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "82e36c70",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Admin/AdminLastAppointmentComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/AdminListAppointmentComponent.vue":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/Admin/AdminListAppointmentComponent.vue ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _AdminListAppointmentComponent_vue_vue_type_template_id_edd26060_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AdminListAppointmentComponent.vue?vue&type=template&id=edd26060&scoped=true& */ "./resources/js/components/Admin/AdminListAppointmentComponent.vue?vue&type=template&id=edd26060&scoped=true&");
+/* harmony import */ var _AdminListAppointmentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AdminListAppointmentComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/Admin/AdminListAppointmentComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _AdminListAppointmentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _AdminListAppointmentComponent_vue_vue_type_template_id_edd26060_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _AdminListAppointmentComponent_vue_vue_type_template_id_edd26060_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "edd26060",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Admin/AdminListAppointmentComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/AdminTodayAppointmentComponent.vue":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/Admin/AdminTodayAppointmentComponent.vue ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _AdminTodayAppointmentComponent_vue_vue_type_template_id_3deb138a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AdminTodayAppointmentComponent.vue?vue&type=template&id=3deb138a&scoped=true& */ "./resources/js/components/Admin/AdminTodayAppointmentComponent.vue?vue&type=template&id=3deb138a&scoped=true&");
+/* harmony import */ var _AdminTodayAppointmentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AdminTodayAppointmentComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/Admin/AdminTodayAppointmentComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _AdminTodayAppointmentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _AdminTodayAppointmentComponent_vue_vue_type_template_id_3deb138a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _AdminTodayAppointmentComponent_vue_vue_type_template_id_3deb138a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "3deb138a",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Admin/AdminTodayAppointmentComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/AdminWaitingAppointmentComponent.vue":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/Admin/AdminWaitingAppointmentComponent.vue ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _AdminWaitingAppointmentComponent_vue_vue_type_template_id_e18ddf72_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AdminWaitingAppointmentComponent.vue?vue&type=template&id=e18ddf72&scoped=true& */ "./resources/js/components/Admin/AdminWaitingAppointmentComponent.vue?vue&type=template&id=e18ddf72&scoped=true&");
+/* harmony import */ var _AdminWaitingAppointmentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AdminWaitingAppointmentComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/Admin/AdminWaitingAppointmentComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _AdminWaitingAppointmentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _AdminWaitingAppointmentComponent_vue_vue_type_template_id_e18ddf72_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _AdminWaitingAppointmentComponent_vue_vue_type_template_id_e18ddf72_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "e18ddf72",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Admin/AdminWaitingAppointmentComponent.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -38845,10 +39496,10 @@ component.options.__file = "resources/js/components/ExampleComponent.vue"
 
 /***/ }),
 
-/***/ "./resources/js/components/AdminAppointmentComponent.vue?vue&type=script&lang=js&":
-/*!****************************************************************************************!*\
-  !*** ./resources/js/components/AdminAppointmentComponent.vue?vue&type=script&lang=js& ***!
-  \****************************************************************************************/
+/***/ "./resources/js/components/Admin/AdminAppointmentComponent.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/components/Admin/AdminAppointmentComponent.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -38856,8 +39507,104 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminAppointmentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AdminAppointmentComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AdminAppointmentComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminAppointmentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AdminAppointmentComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminAppointmentComponent.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminAppointmentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/AdminCancelAppointmentComponent.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/js/components/Admin/AdminCancelAppointmentComponent.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminCancelAppointmentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AdminCancelAppointmentComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminCancelAppointmentComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminCancelAppointmentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/AdminComponent.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/Admin/AdminComponent.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AdminComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/AdminLastAppointmentComponent.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/components/Admin/AdminLastAppointmentComponent.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminLastAppointmentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AdminLastAppointmentComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminLastAppointmentComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminLastAppointmentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/AdminListAppointmentComponent.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/components/Admin/AdminListAppointmentComponent.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminListAppointmentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AdminListAppointmentComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminListAppointmentComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminListAppointmentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/AdminTodayAppointmentComponent.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/components/Admin/AdminTodayAppointmentComponent.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminTodayAppointmentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AdminTodayAppointmentComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminTodayAppointmentComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminTodayAppointmentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/AdminWaitingAppointmentComponent.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/js/components/Admin/AdminWaitingAppointmentComponent.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminWaitingAppointmentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AdminWaitingAppointmentComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminWaitingAppointmentComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminWaitingAppointmentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
 
 /***/ }),
 
@@ -38893,19 +39640,121 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/AdminAppointmentComponent.vue?vue&type=template&id=506b1fb2&scoped=true&":
-/*!**********************************************************************************************************!*\
-  !*** ./resources/js/components/AdminAppointmentComponent.vue?vue&type=template&id=506b1fb2&scoped=true& ***!
-  \**********************************************************************************************************/
+/***/ "./resources/js/components/Admin/AdminAppointmentComponent.vue?vue&type=template&id=a6f8f9dc&scoped=true&":
+/*!****************************************************************************************************************!*\
+  !*** ./resources/js/components/Admin/AdminAppointmentComponent.vue?vue&type=template&id=a6f8f9dc&scoped=true& ***!
+  \****************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminAppointmentComponent_vue_vue_type_template_id_506b1fb2_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminAppointmentComponent_vue_vue_type_template_id_506b1fb2_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminAppointmentComponent_vue_vue_type_template_id_a6f8f9dc_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminAppointmentComponent_vue_vue_type_template_id_a6f8f9dc_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminAppointmentComponent_vue_vue_type_template_id_506b1fb2_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AdminAppointmentComponent.vue?vue&type=template&id=506b1fb2&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AdminAppointmentComponent.vue?vue&type=template&id=506b1fb2&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminAppointmentComponent_vue_vue_type_template_id_a6f8f9dc_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AdminAppointmentComponent.vue?vue&type=template&id=a6f8f9dc&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminAppointmentComponent.vue?vue&type=template&id=a6f8f9dc&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/AdminCancelAppointmentComponent.vue?vue&type=template&id=6ee0daa8&scoped=true&":
+/*!**********************************************************************************************************************!*\
+  !*** ./resources/js/components/Admin/AdminCancelAppointmentComponent.vue?vue&type=template&id=6ee0daa8&scoped=true& ***!
+  \**********************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminCancelAppointmentComponent_vue_vue_type_template_id_6ee0daa8_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminCancelAppointmentComponent_vue_vue_type_template_id_6ee0daa8_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminCancelAppointmentComponent_vue_vue_type_template_id_6ee0daa8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AdminCancelAppointmentComponent.vue?vue&type=template&id=6ee0daa8&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminCancelAppointmentComponent.vue?vue&type=template&id=6ee0daa8&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/AdminComponent.vue?vue&type=template&id=bf7c018e&scoped=true&":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/js/components/Admin/AdminComponent.vue?vue&type=template&id=bf7c018e&scoped=true& ***!
+  \*****************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminComponent_vue_vue_type_template_id_bf7c018e_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminComponent_vue_vue_type_template_id_bf7c018e_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminComponent_vue_vue_type_template_id_bf7c018e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AdminComponent.vue?vue&type=template&id=bf7c018e&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminComponent.vue?vue&type=template&id=bf7c018e&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/AdminLastAppointmentComponent.vue?vue&type=template&id=82e36c70&scoped=true&":
+/*!********************************************************************************************************************!*\
+  !*** ./resources/js/components/Admin/AdminLastAppointmentComponent.vue?vue&type=template&id=82e36c70&scoped=true& ***!
+  \********************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminLastAppointmentComponent_vue_vue_type_template_id_82e36c70_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminLastAppointmentComponent_vue_vue_type_template_id_82e36c70_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminLastAppointmentComponent_vue_vue_type_template_id_82e36c70_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AdminLastAppointmentComponent.vue?vue&type=template&id=82e36c70&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminLastAppointmentComponent.vue?vue&type=template&id=82e36c70&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/AdminListAppointmentComponent.vue?vue&type=template&id=edd26060&scoped=true&":
+/*!********************************************************************************************************************!*\
+  !*** ./resources/js/components/Admin/AdminListAppointmentComponent.vue?vue&type=template&id=edd26060&scoped=true& ***!
+  \********************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminListAppointmentComponent_vue_vue_type_template_id_edd26060_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminListAppointmentComponent_vue_vue_type_template_id_edd26060_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminListAppointmentComponent_vue_vue_type_template_id_edd26060_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AdminListAppointmentComponent.vue?vue&type=template&id=edd26060&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminListAppointmentComponent.vue?vue&type=template&id=edd26060&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/AdminTodayAppointmentComponent.vue?vue&type=template&id=3deb138a&scoped=true&":
+/*!*********************************************************************************************************************!*\
+  !*** ./resources/js/components/Admin/AdminTodayAppointmentComponent.vue?vue&type=template&id=3deb138a&scoped=true& ***!
+  \*********************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminTodayAppointmentComponent_vue_vue_type_template_id_3deb138a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminTodayAppointmentComponent_vue_vue_type_template_id_3deb138a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminTodayAppointmentComponent_vue_vue_type_template_id_3deb138a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AdminTodayAppointmentComponent.vue?vue&type=template&id=3deb138a&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminTodayAppointmentComponent.vue?vue&type=template&id=3deb138a&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/AdminWaitingAppointmentComponent.vue?vue&type=template&id=e18ddf72&scoped=true&":
+/*!***********************************************************************************************************************!*\
+  !*** ./resources/js/components/Admin/AdminWaitingAppointmentComponent.vue?vue&type=template&id=e18ddf72&scoped=true& ***!
+  \***********************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminWaitingAppointmentComponent_vue_vue_type_template_id_e18ddf72_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminWaitingAppointmentComponent_vue_vue_type_template_id_e18ddf72_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminWaitingAppointmentComponent_vue_vue_type_template_id_e18ddf72_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AdminWaitingAppointmentComponent.vue?vue&type=template&id=e18ddf72&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminWaitingAppointmentComponent.vue?vue&type=template&id=e18ddf72&scoped=true&");
 
 
 /***/ }),
@@ -38944,10 +39793,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AdminAppointmentComponent.vue?vue&type=template&id=506b1fb2&scoped=true&":
-/*!*************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AdminAppointmentComponent.vue?vue&type=template&id=506b1fb2&scoped=true& ***!
-  \*************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminAppointmentComponent.vue?vue&type=template&id=a6f8f9dc&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminAppointmentComponent.vue?vue&type=template&id=a6f8f9dc&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -38960,48 +39809,699 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container text-center" }, [
-    _c("h1", [_vm._v("Appointments")]),
-    _vm._v(" "),
-    _c("hr"),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "row" },
-      _vm._l(_vm.items.data, function(item) {
-        return _c("div", { key: item.id, staticClass: "col-md-4" }, [
-          _c("div", { staticClass: "card appointment-card" }, [
-            _c("div", { staticClass: "card-title appointment-card-title" }, [
-              _c("h4", [_vm._v("Dear, " + _vm._s(item.appointmentName))])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body appointment-card-body" }, [
-              _c("span", [_vm._v(_vm._s(item.appointmentName))]),
-              _vm._v(" "),
-              _c("span", [_vm._v(_vm._s(item.appointmentDate))]),
-              _vm._v(" "),
-              _c("span", [_vm._v(_vm._s(item.working))])
-            ])
-          ])
-        ])
+  return _c(
+    "div",
+    { staticClass: "container text-center" },
+    [
+      _c("admin-list-appointment-component", {
+        attrs: { data: _vm.items.data }
       }),
-      0
-    ),
+      _vm._v(" "),
+      _c("div", { staticClass: "row", staticStyle: { "margin-top": "10px" } }, [
+        _c(
+          "div",
+          { staticClass: "col-md-12 d-flex justify-content-center" },
+          [
+            _c("pagination", {
+              attrs: { data: _vm.items },
+              on: { "pagination-change-page": _vm.getData }
+            })
+          ],
+          1
+        )
+      ])
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminCancelAppointmentComponent.vue?vue&type=template&id=6ee0daa8&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminCancelAppointmentComponent.vue?vue&type=template&id=6ee0daa8&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "container text-center" },
+    [
+      _c("admin-list-appointment-component", {
+        attrs: { data: _vm.items.data }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "row", staticStyle: { "margin-top": "10px" } }, [
+        _c(
+          "div",
+          { staticClass: "col-md-12 d-flex justify-content-center" },
+          [
+            _c("pagination", {
+              attrs: { data: _vm.items },
+              on: { "pagination-change-page": _vm.getData }
+            })
+          ],
+          1
+        )
+      ])
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminComponent.vue?vue&type=template&id=bf7c018e&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminComponent.vue?vue&type=template&id=bf7c018e&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _vm._m(0),
     _vm._v(" "),
-    _c("div", { staticClass: "row", staticStyle: { "margin-top": "10px" } }, [
+    _c("div", { staticClass: "tab-content", attrs: { id: "myTabContent" } }, [
       _c(
         "div",
-        { staticClass: "col-md-12 d-flex justify-content-center" },
+        {
+          staticClass: "tab-pane fade",
+          attrs: {
+            id: "confirmation",
+            role: "tabpanel",
+            "aria-labelledby": "confirmation-tab"
+          }
+        },
         [
-          _c("pagination", {
-            attrs: { data: _vm.items },
-            on: { "pagination-change-page": _vm.getData }
-          })
-        ],
-        1
+          _c(
+            "div",
+            { staticClass: "container text-center" },
+            [
+              _c("admin-list-appointment-component", {
+                attrs: { data: _vm.waiting.data },
+                on: {
+                  updateOkey: _vm.updateOkey,
+                  updateCancel: _vm.updateCancel
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "row", staticStyle: { "margin-top": "10px" } },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "col-md-12 d-flex justify-content-center" },
+                    [
+                      _c("pagination", {
+                        attrs: { data: _vm.waiting },
+                        on: { "pagination-change-page": _vm.getData }
+                      })
+                    ],
+                    1
+                  )
+                ]
+              )
+            ],
+            1
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "tab-pane fade ",
+          attrs: { id: "last", role: "tabpanel", "aria-labelledby": "last-tab" }
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "container text-center" },
+            [
+              _c("admin-list-appointment-component", {
+                attrs: { data: _vm.last.data },
+                on: {
+                  updateOkey: _vm.updateOkey,
+                  updateCancel: _vm.updateCancel
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "row", staticStyle: { "margin-top": "10px" } },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "col-md-12 d-flex justify-content-center" },
+                    [
+                      _c("pagination", {
+                        attrs: { data: _vm.last },
+                        on: { "pagination-change-page": _vm.getData }
+                      })
+                    ],
+                    1
+                  )
+                ]
+              )
+            ],
+            1
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "tab-pane fade show active",
+          attrs: {
+            id: "today",
+            role: "tabpanel",
+            "aria-labelledby": "today-tab"
+          }
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "container text-center" },
+            [
+              _c("admin-list-appointment-component", {
+                attrs: { data: _vm.today.data },
+                on: {
+                  updateOkey: _vm.updateOkey,
+                  updateCancel: _vm.updateCancel
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "row", staticStyle: { "margin-top": "10px" } },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "col-md-12 d-flex justify-content-center" },
+                    [
+                      _c("pagination", {
+                        attrs: { data: _vm.today },
+                        on: { "pagination-change-page": _vm.getData }
+                      })
+                    ],
+                    1
+                  )
+                ]
+              )
+            ],
+            1
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "tab-pane fade",
+          attrs: {
+            id: "feature",
+            role: "tabpanel",
+            "aria-labelledby": "feature-tab"
+          }
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "container text-center" },
+            [
+              _c("admin-list-appointment-component", {
+                attrs: { data: _vm.list.data },
+                on: {
+                  updateOkey: _vm.updateOkey,
+                  updateCancel: _vm.updateCancel
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "row", staticStyle: { "margin-top": "10px" } },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "col-md-12 d-flex justify-content-center" },
+                    [
+                      _c("pagination", {
+                        attrs: { data: _vm.list },
+                        on: { "pagination-change-page": _vm.getData }
+                      })
+                    ],
+                    1
+                  )
+                ]
+              )
+            ],
+            1
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "tab-pane fade",
+          attrs: {
+            id: "cancel",
+            role: "tabpanel",
+            "aria-labelledby": "cancel-tab"
+          }
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "container text-center" },
+            [
+              _c("admin-list-appointment-component", {
+                attrs: { data: _vm.cancel.data },
+                on: {
+                  updateOkey: _vm.updateOkey,
+                  updateCancel: _vm.updateCancel
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "row", staticStyle: { "margin-top": "10px" } },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "col-md-12 d-flex justify-content-center" },
+                    [
+                      _c("pagination", {
+                        attrs: { data: _vm.cancel },
+                        on: { "pagination-change-page": _vm.getData }
+                      })
+                    ],
+                    1
+                  )
+                ]
+              )
+            ],
+            1
+          )
+        ]
       )
     ])
   ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "d-flex justify-content-center" }, [
+      _c(
+        "ul",
+        {
+          staticClass: "nav nav-tabs",
+          attrs: { id: "myTab", role: "tablist" }
+        },
+        [
+          _c(
+            "li",
+            { staticClass: "nav-item", attrs: { role: "presentation" } },
+            [
+              _c(
+                "button",
+                {
+                  staticClass: "nav-link",
+                  attrs: {
+                    id: "confirmation-tab",
+                    "data-bs-toggle": "tab",
+                    "data-bs-target": "#confirmation",
+                    type: "button",
+                    role: "tab",
+                    "aria-controls": "confirmation",
+                    "aria-selected": "false"
+                  }
+                },
+                [_vm._v("Appointments Pending Confirmation\n                ")]
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            { staticClass: "nav-item", attrs: { role: "presentation" } },
+            [
+              _c(
+                "button",
+                {
+                  staticClass: "nav-link",
+                  attrs: {
+                    id: "last-tab",
+                    "data-bs-toggle": "tab",
+                    "data-bs-target": "#last",
+                    type: "button",
+                    role: "tab",
+                    "aria-controls": "last",
+                    "aria-selected": "false"
+                  }
+                },
+                [_vm._v("Appointments of Last\n                ")]
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            { staticClass: "nav-item", attrs: { role: "presentation" } },
+            [
+              _c(
+                "button",
+                {
+                  staticClass: "nav-link active",
+                  attrs: {
+                    id: "today-tab",
+                    "data-bs-toggle": "tab",
+                    "data-bs-target": "#today",
+                    type: "button",
+                    role: "tab",
+                    "aria-controls": "today",
+                    "aria-selected": "true"
+                  }
+                },
+                [_vm._v("Today's Appointments\n                ")]
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            { staticClass: "nav-item", attrs: { role: "presentation" } },
+            [
+              _c(
+                "button",
+                {
+                  staticClass: "nav-link",
+                  attrs: {
+                    id: "feature-tab",
+                    "data-bs-toggle": "tab",
+                    "data-bs-target": "#feature",
+                    type: "button",
+                    role: "tab",
+                    "aria-controls": "feature",
+                    "aria-selected": "false"
+                  }
+                },
+                [_vm._v("Next Appointments\n                ")]
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            { staticClass: "nav-item", attrs: { role: "presentation" } },
+            [
+              _c(
+                "button",
+                {
+                  staticClass: "nav-link",
+                  attrs: {
+                    id: "cancel-tab",
+                    "data-bs-toggle": "tab",
+                    "data-bs-target": "#cancel",
+                    type: "button",
+                    role: "tab",
+                    "aria-controls": "cancel",
+                    "aria-selected": "false"
+                  }
+                },
+                [_vm._v("Canceled Appointments\n                ")]
+              )
+            ]
+          )
+        ]
+      )
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminLastAppointmentComponent.vue?vue&type=template&id=82e36c70&scoped=true&":
+/*!***********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminLastAppointmentComponent.vue?vue&type=template&id=82e36c70&scoped=true& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "container text-center" },
+    [
+      _c("admin-list-appointment-component", {
+        attrs: { data: _vm.items.data }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "row", staticStyle: { "margin-top": "10px" } }, [
+        _c(
+          "div",
+          { staticClass: "col-md-12 d-flex justify-content-center" },
+          [
+            _c("pagination", {
+              attrs: { data: _vm.items },
+              on: { "pagination-change-page": _vm.getData }
+            })
+          ],
+          1
+        )
+      ])
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminListAppointmentComponent.vue?vue&type=template&id=edd26060&scoped=true&":
+/*!***********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminListAppointmentComponent.vue?vue&type=template&id=edd26060&scoped=true& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "row" },
+    _vm._l(_vm.data, function(item) {
+      return _c("div", { staticClass: "col-md-4" }, [
+        _c("div", { staticClass: "card appointment-card" }, [
+          _c("div", { staticClass: "card-title appointment-card-title mt-4" }, [
+            _c("h4", [
+              _vm._v("Dear, " + _vm._s(item.appointmentName) + " "),
+              item.isActive === 0
+                ? _c("span", { staticClass: "new-appointment-card" }, [
+                    _vm._v("New")
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              item.isActive === 2
+                ? _c("span", { staticClass: "canceled-appointment-card" }, [
+                    _vm._v("Canceled")
+                  ])
+                : _vm._e()
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body appointment-card-body" }, [
+            _c("span", [_vm._v(_vm._s(item.appointmentName))]),
+            _vm._v(" "),
+            _c("span", [_vm._v(_vm._s(item.appointmentDate))]),
+            _vm._v(" "),
+            _c("span", [_vm._v(_vm._s(item.working))])
+          ]),
+          _vm._v(" "),
+          item.isActive === 0
+            ? _c("div", [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-success",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        return _vm.appointmentConfirmation(item.id)
+                      }
+                    }
+                  },
+                  [_vm._v("Confirm")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        return _vm.appointmentCancel(item.id)
+                      }
+                    }
+                  },
+                  [_vm._v("Cancel")]
+                )
+              ])
+            : _vm._e()
+        ])
+      ])
+    }),
+    0
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminTodayAppointmentComponent.vue?vue&type=template&id=3deb138a&scoped=true&":
+/*!************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminTodayAppointmentComponent.vue?vue&type=template&id=3deb138a&scoped=true& ***!
+  \************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "container text-center" },
+    [
+      _c("admin-list-appointment-component", {
+        attrs: { data: _vm.items.data }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "row", staticStyle: { "margin-top": "10px" } }, [
+        _c(
+          "div",
+          { staticClass: "col-md-12 d-flex justify-content-center" },
+          [
+            _c("pagination", {
+              attrs: { data: _vm.items },
+              on: { "pagination-change-page": _vm.getData }
+            })
+          ],
+          1
+        )
+      ])
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminWaitingAppointmentComponent.vue?vue&type=template&id=e18ddf72&scoped=true&":
+/*!**************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/AdminWaitingAppointmentComponent.vue?vue&type=template&id=e18ddf72&scoped=true& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "container text-center" },
+    [
+      _c("admin-list-appointment-component", {
+        attrs: { data: _vm.items.data }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "row", staticStyle: { "margin-top": "10px" } }, [
+        _c(
+          "div",
+          { staticClass: "col-md-12 d-flex justify-content-center" },
+          [
+            _c("pagination", {
+              attrs: { data: _vm.items },
+              on: { "pagination-change-page": _vm.getData }
+            })
+          ],
+          1
+        )
+      ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -39331,7 +40831,11 @@ var render = function() {
                     }
                   ],
                   staticClass: "form-control",
-                  attrs: { type: "date", id: "appointmentDate" },
+                  attrs: {
+                    type: "date",
+                    min: _vm.minDate,
+                    id: "appointmentDate"
+                  },
                   domProps: { value: _vm.appointmentDate },
                   on: {
                     change: _vm.selectDate,

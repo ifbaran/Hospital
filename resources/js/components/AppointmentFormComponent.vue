@@ -69,7 +69,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="appointmentDate" class="form-label">Date:</label>
-                        <input type="date" class="form-control" @change="selectDate" v-model="appointmentDate"
+                        <input type="date" :min="minDate" class="form-control" @change="selectDate" v-model="appointmentDate"
                                id="appointmentDate">
                     </div>
                     <div class="mb-3">
@@ -120,7 +120,8 @@ export default {
             appointmentPhone: null,
             appointmentDate: new Date().toISOString().slice(0, 10),
             appointmentNote: null,
-            workingHours: []
+            workingHours: [],
+            minDate: new Date().toISOString().slice(0,10)
         }
     },
     name: "AppointmentFormComponent",

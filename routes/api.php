@@ -23,7 +23,13 @@ Route::group(['namespace'=>'api'], function(){
     Route::post('/appointment', 'AppointmentController@storeAppointment');
 
     Route::group(['namespace'=>'admin', 'prefix'=> 'admin'],function(){
+        Route::post('/process','AdminAPIController@process');
+        Route::get('/all', 'AdminAPIController@all');
         Route::get('appointment-list','AdminAPIController@getAppointmentList');
+        Route::get('appointment-today-list','AdminAPIController@getTodayAppointmentList');
+        Route::get('appointment-last-list','AdminAPIController@getLastAppointmentList');
+        Route::get('appointment-waiting-list','AdminAPIController@getWaitingAppointmentList');
+        Route::get('appointment-cancel-list','AdminAPIController@getCancelAppointmentList');
     });
 
 });
