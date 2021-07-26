@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class WorkingHours extends Model
 {
     use HasFactory;
-
+    protected $guarded = [];
     static function getString($workingHourId)
     {
         $control = WorkingHours::where('id',$workingHourId)->count();

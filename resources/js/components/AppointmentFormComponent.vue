@@ -69,7 +69,8 @@
                     </div>
                     <div class="mb-3">
                         <label for="appointmentDate" class="form-label">Date:</label>
-                        <input type="date" :min="minDate" class="form-control" @change="selectDate" v-model="appointmentDate"
+                        <input type="date" :min="minDate" class="form-control" @change="selectDate"
+                               v-model="appointmentDate"
                                id="appointmentDate">
                     </div>
                     <div class="mb-3">
@@ -121,7 +122,7 @@ export default {
             appointmentDate: new Date().toISOString().slice(0, 10),
             appointmentNote: null,
             workingHours: [],
-            minDate: new Date().toISOString().slice(0,10)
+            minDate: new Date().toISOString().slice(0, 10)
         }
     },
     name: "AppointmentFormComponent",
@@ -132,7 +133,7 @@ export default {
                 this.validEmail(this.appointmentEmail) &&
                 this.appointmentPhone &&
                 this.appointmentWorkingTime !== 0 &&
-                this.notification_types) {
+                this.notification_types >= 0) {
                 axios.post(`http://hospital.test/api/appointment`, {
                     appointmentName: this.appointmentName,
                     appointmentEmail: this.appointmentEmail,
@@ -141,10 +142,10 @@ export default {
                     appointmentNote: this.appointmentNote,
                     appointmentWorkingTime: this.appointmentWorkingTime,
                     notification_types: this.notification_types
-                }).then(response => {
-
-                    if (response.status)
+                }).then((response) => {
+                    if (response.status) {
                         this.completeForm = false;
+                    }
                 });
             }
 
@@ -165,7 +166,8 @@ export default {
             if (!this.validEmail(this.appointmentEmail)) {
                 this.errors.push('Please enter valid email');
             }
-            if (!this.notification_types) {
+            if (this.notification_types < 0) {
+                console.log(this.notification_types);
                 this.errors.push('Please select a notification type');
             }
         },

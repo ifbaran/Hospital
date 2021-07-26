@@ -1,4 +1,16 @@
 <?php
+//BEGIN DEFINES
+const APPOINTMENT_WAITING = 0;
+const APPOINTMENT_SUCCESS = 1;
+const APPOINTMENT_CANCELED = 2;
+
+const NOTIFICATION_SMS = 0;
+const NOTIFICATION_EMAIL = 1;
+
+const REMINDER_DEFAULT = 0;
+const REMINDER_SUCCESS = 1;
+
+//END DEFINES
 
 return [
 
@@ -67,7 +79,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Europe/Istanbul',
 
     /*
     |--------------------------------------------------------------------------

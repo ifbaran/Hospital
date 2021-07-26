@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,12 +16,28 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'front\IndexController@index')->name('front.index');
 
+Route::group(['prefix'=>'cron'], function()
+{
+    Route::get('/reminder', function ()
+    {
+        Artisan::call('Reminder:Start');
+    });
+});
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+//Route::group(['namespace'=>'admin', 'prefix'=>'admin', 'as' => 'admin', 'middleware'=>['auth']], function (){
+//    Route::get('/', 'AdminController@index')->name('index');;
+//    Route::get('/working-hour', 'AdminController@workingHour')->name('working');
+//});
 
-Route::prefix("admin")->group(function ()
+
+
+Route::prefix("admin")->middleware('auth')->group(function ()
 {
-    Route::get('/', 'admin\AdminController@index')->name('index');
+    Route::get('/', 'admin\AdminController@index')->name('admin.index');
+    Route::get('/working-hour', 'admin\AdminController@workingHour')->name('admin.working');
 });

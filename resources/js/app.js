@@ -32,6 +32,8 @@ Vue.component('admin-cancel-appointment-component', require('./components/Admin/
 Vue.component('admin-appointment-component', require('./components/Admin/AdminAppointmentComponent').default);
 Vue.component('admin-today-appointment-component', require('./components/Admin/AdminTodayAppointmentComponent').default);
 Vue.component('admin-last-appointment-component', require('./components/Admin/AdminLastAppointmentComponent').default);
+Vue.component('admin-working-component', require('./components/Admin/AdminWorkingComponent').default);
+Vue.component('admin-working-item-component', require('./components/Admin/AdminWorkingItemComponent').default);
 
 //Form Component
 Vue.component('appointment-form-component', require('./components/AppointmentFormComponent').default);
